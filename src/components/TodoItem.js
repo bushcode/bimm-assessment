@@ -22,10 +22,6 @@ const TaskDetail = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-
-  span {
-    text-decoration: ${(props) => (props.completed ? 'line-through' : 'none')};
-  }
 `
 
 function TodoItem({ id, text, onItemCompleted, completed, onDeleteItem }) {

@@ -3,7 +3,6 @@ import TodoItem from './TodoItem'
 import styled from 'styled-components'
 
 function TodoList({ items, onItemCompleted, onDeleteItem, onDeleteSelected, selectedItems }) {
-  console.log(selectedItems)
   return (
     <TaskList className="todolist">
       {items.length > 0 && (

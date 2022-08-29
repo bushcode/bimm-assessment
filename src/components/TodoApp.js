@@ -64,16 +64,15 @@ export default function TodoApp() {
                   d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81v8.37C2 19.83 4.17 22 7.81 22h8.37c3.64 0 5.81-2.17 5.81-5.81V7.81C22 4.17 19.83 2 16.19 2ZM16 12.75h-3.25V16c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-3.25H8c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h3.25V8c0-.41.34-.75.75-.75s.75.34.75.75v3.25H16c.41 0 .75.34.75.75s-.34.75-.75.75Z"
                   fill="#fb77a0"></path>
               </svg>
+              <Input
+                type="text"
+                placeholder="Add a task"
+                onChange={(e) => {
+                  setText(e.target.value)
+                }}
+                value={text}
+              />
             </InputIconWrapper>
-
-            <Input
-              type="text"
-              placeholder="Add a task"
-              onChange={(e) => {
-                setText(e.target.value)
-              }}
-              value={text}
-            />
 
             <Button onClick={handleAddItem} disabled={!text}>
               {'Add #' + (items.length + 1)}
@@ -81,7 +80,7 @@ export default function TodoApp() {
           </FormWrapper>
         </form>
 
-        <div className="col-md-3">
+        <div>
           <TodoList
             items={items}
             onItemCompleted={markItemCompleted}
@@ -118,28 +117,33 @@ const AppContainer = styled.div`
 `
 
 const Input = styled.input`
-  font-size: 1rem;
-  padding: 1rem;
+  font-size: 16px;
+  padding: 16px;
   margin: 10px;
   background: transparent;
   border: 0.5px solid #cacacc;
   border-radius: 12px;
   outline: none;
   color: pink;
-  width: 80%;
+  width: 95%;
+
   text-indent: 30px;
 
   ::focus {
     outline: none;
   }
+
+  @media (max-width: 576px) {
+  }
 `
 
 const InputIconWrapper = styled.div`
   position: relative;
+  width: 90%;
   svg {
     position: absolute;
     left: 25px;
-    top: -14px;
+    top: 24px;
   }
 `
 
@@ -160,4 +164,8 @@ const Button = styled.button`
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
+
+  @media (max-width: 576px) {
+    padding: 16px 15px;
+  }
 `
